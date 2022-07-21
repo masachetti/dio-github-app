@@ -67,13 +67,15 @@ export default function GithubProvider ({ children }){
             ...prevState,
             loading: true
         }));
-        githubAPI.get(`/users/${username}/repos`).then(({ data }) => {
+        githubAPI.get(`/users/${username}/repos`)
+        .then(({ data }) => {
             let repositories = mapResponseToRepositories(data);
             setGitHubState((prevState) => ({
                 ...prevState,
                 repositories: repositories
             }))
-        }).finally(()=>{
+        })
+        .finally(()=>{
             setGitHubState((prevState) => ({
                 ...prevState,
                 loading: false
@@ -86,13 +88,15 @@ export default function GithubProvider ({ children }){
             ...prevState,
             loading: true
         }));
-        githubAPI.get(`/users/${username}/starred`).then(({ data }) => {
-            let repositories = mapResponseToRepositories(data);
+        githubAPI.get(`/users/${username}/starred`)
+        .then(({ data }) => {
+            let starred = mapResponseToRepositories(data);
             setGitHubState((prevState) => ({
                 ...prevState,
-                repositories: repositories
+                starred: starred
             }))
-        }).finally(()=>{
+        })
+        .finally(()=>{
             setGitHubState((prevState) => ({
                 ...prevState,
                 loading: false
