@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useContext } from "react";
+import GithubProvider, { GithubContext } from "./providers/github-provider";
+
+function TestComponent(){
+  const context = useContext(GithubContext)
+  useEffect(()=>{
+    console.log("Empty Use Effect")
+    context.getUser("masachetti");
+    console.log(context);
+  }, [])
+
+  useEffect(()=>{
+    console.log("Context effect")
+    console.log(context.githubState);
+  }, [context.githubState])
+
+  return (
+    <>
+    Some Test Component
+    </>
+  )
+}
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GithubProvider>
+      <TestComponent>
+
+      </TestComponent>
+    </GithubProvider>
   );
 }
 
