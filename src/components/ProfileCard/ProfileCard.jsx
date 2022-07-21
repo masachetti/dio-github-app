@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { GithubContext } from '../../providers/github-provider'
 
 export default function ProfileCard() {
-    const githubContext = useContext(GithubContext);
+    const {githubState} = useContext(GithubContext);
 
     const UserProfile = (
         <>
@@ -16,9 +16,16 @@ export default function ProfileCard() {
         </>
     )
 
+    const UserNotFound = (
+        <>
+        User not found
+        </>
+    )
+
     return (
         <>
-        {githubContext.githubState.hasUser ? UserProfile : NoUser}
+        {githubState.searchError ? UserNotFound : 
+        githubState.hasUser ? UserProfile : NoUser}
         </>
     )
 }

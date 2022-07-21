@@ -4,6 +4,7 @@ import githubAPI from "../services/github-api"
 export const GithubContext = createContext({
     githubState: {
         hasUser: false,
+        searchError: false,
         loading: false,
         user: {}
     },
@@ -41,6 +42,7 @@ export default function GithubProvider ({ children }){
         githubAPI.get(`/users/${username}`).then(({ data }) => {
             setGitHubState((prevState) => ({
                 ...prevState,
+                searchError: false,
                 hasUser: true,
                 id: data.id,
                 avatar: data.avatar,
@@ -53,7 +55,13 @@ export default function GithubProvider ({ children }){
                 public_repos: data.public_repos,
                 public_gists: data.public_gists
             }))
-        }).finally(()=>{
+        }).catch(()=>{
+            setGitHubState((prevState)=>({
+                ...prevState,
+                searchError: true
+            }))
+        })
+        .finally(()=>{
             setGitHubState((prevState) => ({
                 ...prevState,
                 loading: false
