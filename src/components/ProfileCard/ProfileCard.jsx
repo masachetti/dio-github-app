@@ -12,7 +12,7 @@ export default function ProfileCard() {
         <S.CardWrapper>
             <S.AvatarImage src={user.avatar_url} alt={avatarImageAltText} />
             <S.InfoContainerWrapper>
-                <S.NameWrapper>{user.name}</S.NameWrapper>
+                <S.NameWrapper>{user.name ? user.name : "No Name"}</S.NameWrapper>
                 <S.InfoWrapper>
                     <ProfileInfo infoName="Username">
                         <span>{user.login}</span>
