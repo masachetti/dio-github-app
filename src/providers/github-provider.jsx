@@ -6,7 +6,9 @@ export const GithubContext = createContext({
         hasUser: false,
         searchError: false,
         loading: false,
-        user: {}
+        user: {},
+        repositories: [],
+        starred: [],
     },
     getUser: undefined,
     getUserRepositories: undefined,
