@@ -18,7 +18,7 @@ export default function UserSearch() {
 
     return (
         <Container>
-            <Input type="text" placeholder='GitHub Username' onChange={handleInputChange}/>
+            <Input type="text" placeholder='type a GitHub username' onChange={handleInputChange}/>
             <Button onClick={searchUser}>Search</Button>
         </Container>
     )
