@@ -1,11 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 
 export default function ProfileInfo({ infoName, infoValue, inline = true }) {
     return (
         <>
             <span style={{ "fontWeight": "bold" }}>{infoName}</span>
-            {inline && <span>: </span>}
+            {inline && <span style={{ "fontWeight": "bold" }}>: </span>}
             <span>{infoValue}</span>
         </>
     )

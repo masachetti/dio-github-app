@@ -8,24 +8,24 @@ export default function ProfileCard() {
     const { user } = githubState;
 
     const avatarImageAltText = `Avatar image from ${user.login}`
-    const UserProfile = (
-        <S.ProfileCardWrapper>
+    return (
+        <S.CardWrapper>
             <S.AvatarImage src={user.avatar_url} alt={avatarImageAltText} />
-            <div>
-                <h3>{user.name}</h3>
-                <S.ProfileInfoWrapper>
+            <S.InfoContainerWrapper>
+                <S.NameWrapper>{user.name}</S.NameWrapper>
+                <S.InfoWrapper>
                     <ProfileInfo infoName="Username" infoValue={user.login} />
-                </S.ProfileInfoWrapper>
-                <S.ProfileInfoWrapper>
+                </S.InfoWrapper>
+                <S.InfoWrapper>
                     <ProfileInfo infoName="Company" infoValue={user.company} />
-                </S.ProfileInfoWrapper>
-                <S.ProfileInfoWrapper>
+                </S.InfoWrapper>
+                <S.InfoWrapper>
                     <ProfileInfo infoName="Location" infoValue={user.location} />
-                </S.ProfileInfoWrapper>
-                <S.ProfileInfoWrapper>
+                </S.InfoWrapper>
+                <S.InfoWrapper>
                     <ProfileInfo infoName="Blog" infoValue={user.blog} />
-                </S.ProfileInfoWrapper>
-                <S.CountersWrapper>
+                </S.InfoWrapper>
+                <S.CountersContainerWrapper>
                     <S.CounterWrapper>
                         <ProfileInfo infoName="Followers" infoValue={user.followers} inline={false} />
                     </S.CounterWrapper>
@@ -38,27 +38,27 @@ export default function ProfileCard() {
                     <S.CounterWrapper>
                         <ProfileInfo infoName="Repos" infoValue={user.public_repos} inline={false} />
                     </S.CounterWrapper>
-                </S.CountersWrapper>
-            </div>
-        </S.ProfileCardWrapper>
-    )
-
-    const NoUser = (
-        <>
-            No User
-        </>
-    )
-
-    const UserNotFound = (
-        <>
-            User not found
-        </>
-    )
-
-    return (
-        <>
-            {githubState.searchError ? UserNotFound :
-                githubState.hasUser ? UserProfile : NoUser}
-        </>
+                </S.CountersContainerWrapper>
+            </S.InfoContainerWrapper>
+        </S.CardWrapper>
     )
 }
+
+// const NoUser = (
+//     <>
+//         No User
+//     </>
+// )
+
+// const UserNotFound = (
+//     <>
+//         User not found
+//     </>
+// )
+
+// return (
+//     <>
+//         {githubState.searchError ? UserNotFound :
+//             githubState.hasUser ? UserProfile : NoUser}
+//     </>
+// )

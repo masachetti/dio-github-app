@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileCardWrapper = styled.div`
+export const CardWrapper = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -8,24 +8,42 @@ export const ProfileCardWrapper = styled.div`
 
 export const AvatarImage = styled.img`
     border-radius: 50%;
-    max-width: 15em;
+    max-width: 13em;
     height: 100%;
+    margin: 10px;
 `
 
-export const CountersWrapper = styled.div`
+export const CountersContainerWrapper = styled.div`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+`
+export const CounterWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 
-export const CounterWrapper = styled.div`
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     margin: 0 5px;
+export const InfoContainerWrapper = styled.div`
+    align-self: flex-start;
 `
 
-export const ProfileInfoWrapper = styled.div`
-    margin: 5px;
+const DefaultMarginDiv = styled.div`
+    margin: 0;
+    margin-left: 15px;
+`
+
+export const InfoWrapper = styled(DefaultMarginDiv)`
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+`
+
+export const NameWrapper = styled(DefaultMarginDiv)`
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
 `
