@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { ProfileCard, UserSearch, Repositories} from "./components";
+import { ProfileCard, UserSearch, Repositories, ContentContainer} from "./components";
 import GithubProvider, { GithubContext } from "./providers/github-provider";
 
 function TestComponent(){
@@ -15,8 +15,10 @@ function App() {
     <GithubProvider>
       <TestComponent />
       <UserSearch />
-      <ProfileCard />
-      <Repositories/>
+      <ContentContainer>
+        <ProfileCard />
+        <Repositories/>
+      </ContentContainer>
     </GithubProvider>
   );
 }
