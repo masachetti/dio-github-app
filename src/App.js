@@ -1,34 +1,22 @@
 import { useEffect, useContext } from "react";
+import { ProfileCard, UserSearch, Repositories} from "./components";
 import GithubProvider, { GithubContext } from "./providers/github-provider";
 
 function TestComponent(){
-  const context = useContext(GithubContext)
+  const {githubState} = useContext(GithubContext);
   useEffect(()=>{
-    console.log("Empty Use Effect")
-    context.getUser("masachetti");
-    console.log(context);
-  }, [])
-
-  useEffect(()=>{
-    console.log("Context effect")
-    console.log(context.githubState);
-  }, [context.githubState])
-
-  return (
-    <>
-    Some Test Component
-    </>
-  )
+    console.log(githubState)
+  }, [githubState])
+  return(<></>)
 }
-
-
 
 function App() {
   return (
     <GithubProvider>
-      <TestComponent>
-
-      </TestComponent>
+      <TestComponent />
+      <UserSearch />
+      <ProfileCard />
+      <Repositories/>
     </GithubProvider>
   );
 }
