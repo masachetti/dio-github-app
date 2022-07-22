@@ -19,6 +19,7 @@ export const CountersContainerWrapper = styled.div`
     align-items: center;
     margin-left: 15px;
 `
+
 export const CounterWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -29,6 +30,7 @@ export const CounterWrapper = styled.div`
 export const InfoContainerWrapper = styled.div`
     align-self: flex-start;
     margin-left: 20px;
+    min-width: 300px;
 `
 
 const DefaultMarginDiv = styled.div`
