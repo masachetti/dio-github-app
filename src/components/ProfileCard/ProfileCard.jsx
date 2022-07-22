@@ -14,29 +14,45 @@ export default function ProfileCard() {
             <S.InfoContainerWrapper>
                 <S.NameWrapper>{user.name}</S.NameWrapper>
                 <S.InfoWrapper>
-                    <ProfileInfo infoName="Username" infoValue={user.login} />
+                    <ProfileInfo infoName="Username">
+                        <span>{user.login}</span>
+                    </ProfileInfo>
                 </S.InfoWrapper>
                 <S.InfoWrapper>
-                    <ProfileInfo infoName="Company" infoValue={user.company} />
+                    <ProfileInfo infoName="Company">
+                        <span>{user.company}</span>
+                    </ProfileInfo>
                 </S.InfoWrapper>
                 <S.InfoWrapper>
-                    <ProfileInfo infoName="Location" infoValue={user.location} />
+                    <ProfileInfo infoName="Location">
+                        <span>{user.location}</span>
+                    </ProfileInfo>
                 </S.InfoWrapper>
                 <S.InfoWrapper>
-                    <ProfileInfo infoName="Blog" infoValue={user.blog} />
+                    <ProfileInfo infoName="Blog">
+                        <a href={user.blog} target="_blank" rel="noopener noreferrer" style={{ 'textDecoration': 'none' }}>{user.blog}</a>
+                    </ProfileInfo>
                 </S.InfoWrapper>
                 <S.CountersContainerWrapper>
                     <S.CounterWrapper>
-                        <ProfileInfo infoName="Followers" infoValue={user.followers} inline={false} />
+                        <ProfileInfo infoName="Followers" inline={false}>
+                            <span>{user.followers}</span>
+                        </ProfileInfo>
                     </S.CounterWrapper>
                     <S.CounterWrapper>
-                        <ProfileInfo infoName="Followings" infoValue={user.following} inline={false} />
+                        <ProfileInfo infoName="Followings" inline={false}>
+                            <span>{user.following}</span>
+                        </ProfileInfo>
                     </S.CounterWrapper>
                     <S.CounterWrapper>
-                        <ProfileInfo infoName="Gists" infoValue={user.public_gists} inline={false} />
+                        <ProfileInfo infoName="Gists" inline={false}>
+                            <span>{user.public_gists}</span>
+                        </ProfileInfo>
                     </S.CounterWrapper>
                     <S.CounterWrapper>
-                        <ProfileInfo infoName="Repos" infoValue={user.public_repos} inline={false} />
+                        <ProfileInfo infoName="Repos" inline={false}>
+                            <span>{user.public_repos}</span>
+                        </ProfileInfo>
                     </S.CounterWrapper>
                 </S.CountersContainerWrapper>
             </S.InfoContainerWrapper>

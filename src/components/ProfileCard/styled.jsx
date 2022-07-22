@@ -28,6 +28,7 @@ export const CounterWrapper = styled.div`
 
 export const InfoContainerWrapper = styled.div`
     align-self: flex-start;
+    margin-left: 20px;
 `
 
 const DefaultMarginDiv = styled.div`
