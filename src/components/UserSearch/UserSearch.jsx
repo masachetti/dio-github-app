@@ -19,7 +19,7 @@ export default function UserSearch() {
     return (
         <Container>
             <Input type="text" placeholder='GitHub Username' onChange={handleInputChange}/>
-            <SButton onClick={searchUser}>Search</SButton>
+            <Button onClick={searchUser}>Search</Button>
         </Container>
     )
 }
@@ -27,15 +27,25 @@ export default function UserSearch() {
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 `
 
 const Input = styled.input`
     width: 100%;
-    border-radius: 5px;
+    max-width: 500px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d7;
+    font-size: 1em;
+    padding: 5px 15px;
+    margin-right: 15px;
 `
 
-const SButton = styled.button`
-    background-color: green;
-    border-radius: 20%;
+const Button = styled.button`
+    background-color: #0ae20a;
+    border-radius: 15px;
+    padding: 5px 25px;
+    border: 2px solid #36b336;
+    &:active{
+        transform: translateY(2px);
+    }
 `
