@@ -19,8 +19,9 @@ export default function GithubProvider ({ children }){
         hasUser: false,
         loading: false,
         user: {
-            id: undefined,
-            avatar: undefined,
+            name: undefined,
+            login: undefined,
+            avatar_url: undefined,
             html_url: undefined,
             company: undefined,
             location: undefined,
@@ -44,16 +45,19 @@ export default function GithubProvider ({ children }){
                 ...prevState,
                 searchError: false,
                 hasUser: true,
-                id: data.id,
-                avatar: data.avatar,
-                html_url: data.html_url,
-                company: data.company,
-                location: data.location,
-                blog: data.blog,
-                followers: data.followers,
-                following: data.following,
-                public_repos: data.public_repos,
-                public_gists: data.public_gists
+                user:{
+                    name: data.name,
+                    login: data.login,
+                    avatar_url: data.avatar_url,
+                    html_url: data.html_url,
+                    company: data.company,
+                    location: data.location,
+                    blog: data.blog,
+                    followers: data.followers,
+                    following: data.following,
+                    public_repos: data.public_repos,
+                    public_gists: data.public_gists
+                }
             }))
         }).catch(()=>{
             setGitHubState((prevState)=>({
