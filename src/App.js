@@ -1,13 +1,18 @@
 import { useEffect, useContext } from "react";
-import { ProfileCard, UserSearch, Repositories, ContentContainer} from "./components";
+import {
+  ProfileCard,
+  UserSearch,
+  Repositories,
+  ContentContainer,
+} from "./components";
 import GithubProvider, { GithubContext } from "./providers/github-provider";
 
-function TestComponent(){
-  const {githubState} = useContext(GithubContext);
-  useEffect(()=>{
-    console.log(githubState)
-  }, [githubState])
-  return(<></>)
+function TestComponent() {
+  const { githubState } = useContext(GithubContext);
+  useEffect(() => {
+    console.log(githubState);
+  }, [githubState]);
+  return <></>;
 }
 
 function App() {
@@ -17,7 +22,7 @@ function App() {
       <UserSearch />
       <ContentContainer>
         <ProfileCard />
-        <Repositories/>
+        <Repositories />
       </ContentContainer>
     </GithubProvider>
   );
